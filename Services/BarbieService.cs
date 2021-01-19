@@ -11,7 +11,13 @@ namespace AuctionBarbie.WebApi.Services {
         {
             _barbieRepository = barbieRepository;
         }
-        public List<Barbie> FetchAllBarbies() => _barbieRepository.GetAllBarbies();
+        public List<Barbie> FetchAllBarbies() 
+        {
+            var barbies = _barbieRepository.GetAllBarbies();
+            barbies.ForEach(b => b._links.TryAdd("self", $"https://localhost:5001/api/barbies/{b.Id}" ));
+
+            return barbies;
+        }
         public Barbie FetchBarbieById(int id) => _barbieRepository.GetById(id);
         public Barbie DeleteBarbie(int id) => _barbieRepository.DeleteBarbie(id);
         public void PostBarbie(BarbieInputModel barbieInputModel) => _barbieRepository.PostBarbie(barbieInputModel);

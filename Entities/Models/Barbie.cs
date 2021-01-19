@@ -1,7 +1,10 @@
 using System;
+using AuctionBarbie.WebApi.Hypermedia;
 
-namespace AuctionBarbie.WebApi.Models {
-    public class Barbie {
+namespace AuctionBarbie.WebApi.Models 
+{
+    public class Barbie : HyperMedia
+    {
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -13,3 +16,8 @@ namespace AuctionBarbie.WebApi.Models {
         public string CreatedBy { get; set; }
     }
 }
+
+
+
+
+
