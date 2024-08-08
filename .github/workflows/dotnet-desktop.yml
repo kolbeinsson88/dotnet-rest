@@ -78,7 +78,7 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Create sln file
-      run: dotnet new sln --name AuctionBarbie
+      run: dotnet new sln --name AuctionBarbie --force
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
